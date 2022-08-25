@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "What Makes a Hero", "What Makes a Hero.csproj", "{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{DD84FE04-3D54-4C99-8428-AEE7D8AAA860}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
