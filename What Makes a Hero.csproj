@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>WhatMakesaHero</RootNamespace>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 </Project>
