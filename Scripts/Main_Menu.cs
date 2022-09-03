@@ -18,22 +18,22 @@ public class Main_Menu : Control
 //  {
 //      
 //  }
-private void _on_StartButton_pressed()
-{
-	GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
-}
-
-
-private void _on_OptionsButton_pressed()
-{
-	GetTree().ChangeScene("res://Scenes/Menus/Options.tscn");
-}
-
-
-private void _on_ExitButton_pressed()
-{
-	GetTree().Quit();
-}
+	private void _on_StartButton_pressed()
+	{
+		GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
+	}
+	
+	
+	private void _on_OptionsButton_pressed()
+	{
+		GetTree().ChangeScene("res://Scenes/Menus/Options.tscn");
+	}
+	
+	
+	private void _on_ExitButton_pressed()
+	{
+		GetTree().Quit();
+	}
 
 }
 
