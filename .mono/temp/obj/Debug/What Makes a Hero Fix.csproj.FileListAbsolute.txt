@@ -1,0 +1,9 @@
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\bin\Debug\What Makes a Hero Fix.dll
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\bin\Debug\What Makes a Hero Fix.pdb
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.csproj.AssemblyReference.cache
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.GeneratedMSBuildEditorConfig.editorconfig
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.AssemblyInfoInputs.cache
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.AssemblyInfo.cs
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.csproj.CoreCompileInputs.cache
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.dll
+E:\Personal Work\Alex's Dumb Video Game Ideas\Max Project Fix\.mono\temp\obj\Debug\What Makes a Hero Fix.pdb

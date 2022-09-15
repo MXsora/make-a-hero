@@ -1,0 +1,183 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/Idle.cs" type="Script" id=1]
+[ext_resource path="res://Art/IdleUI.png" type="Texture" id=2]
+[ext_resource path="res://Art/IdleButtonSheet.png" type="Texture" id=3]
+[ext_resource path="res://Art/IdleSpriteFrames.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Art/IdleShopButton.png" type="Texture" id=5]
+[ext_resource path="res://Art/IdleMButton.png" type="Texture" id=6]
+[ext_resource path="res://Art/IdleActButton.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 9, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 9, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 9, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 18, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 18, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 18, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 27, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 27, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 27, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 36, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 36, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 7, 36, 7, 9 )
+
+[node name="Idle" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 160.0
+margin_bottom = 90.0
+color = Color( 0.176471, 0.176471, 0.176471, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="StatDisplay" type="Label" parent="."]
+margin_left = 115.0
+margin_top = 4.0
+margin_right = 155.0
+margin_bottom = 18.0
+
+[node name="HealthButton" type="TextureButton" parent="."]
+margin_left = 3.0
+margin_top = 71.0
+margin_right = 10.0
+margin_bottom = 80.0
+toggle_mode = true
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
+
+[node name="AttackButton" type="TextureButton" parent="."]
+margin_left = 12.0
+margin_top = 71.0
+margin_right = 19.0
+margin_bottom = 80.0
+toggle_mode = true
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 5 )
+texture_hover = SubResource( 6 )
+
+[node name="DefenseButton" type="TextureButton" parent="."]
+margin_left = 21.0
+margin_top = 71.0
+margin_right = 28.0
+margin_bottom = 80.0
+toggle_mode = true
+texture_normal = SubResource( 7 )
+texture_pressed = SubResource( 8 )
+texture_hover = SubResource( 9 )
+
+[node name="EquipmentButton" type="TextureButton" parent="."]
+margin_left = 30.0
+margin_top = 71.0
+margin_right = 37.0
+margin_bottom = 80.0
+toggle_mode = true
+texture_normal = SubResource( 10 )
+texture_pressed = SubResource( 11 )
+texture_hover = SubResource( 12 )
+
+[node name="MagicButton" type="TextureButton" parent="."]
+margin_left = 39.0
+margin_top = 71.0
+margin_right = 46.0
+margin_bottom = 80.0
+toggle_mode = true
+texture_normal = SubResource( 13 )
+texture_pressed = SubResource( 14 )
+texture_hover = SubResource( 15 )
+
+[node name="MenuButton" type="TextureButton" parent="."]
+margin_left = 3.0
+margin_top = 82.0
+margin_right = 10.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 6 )
+
+[node name="ShopButton" type="TextureButton" parent="."]
+margin_left = 12.0
+margin_top = 82.0
+margin_right = 30.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 5 )
+
+[node name="ActionButton" type="TextureButton" parent="."]
+margin_left = 31.0
+margin_top = 82.0
+margin_right = 46.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 7 )
+
+[node name="IdleAnimations" type="AnimatedSprite" parent="."]
+position = Vector2( 80, 36 )
+frames = ExtResource( 4 )
+
+[node name="Details" type="RichTextLabel" parent="."]
+margin_left = 51.0
+margin_top = 73.0
+margin_right = 156.0
+margin_bottom = 86.0
+text = "Detailed stats"
+scroll_active = false
+
+[connection signal="pressed" from="HealthButton" to="." method="_on_HealthButton_pressed"]
+[connection signal="toggled" from="HealthButton" to="." method="_on_HealthButton_toggled"]
+[connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="DefenseButton" to="." method="_on_DefenseButton_pressed"]
+[connection signal="pressed" from="EquipmentButton" to="." method="_on_EquipmentButton_pressed"]
+[connection signal="pressed" from="MagicButton" to="." method="_on_MagicButton_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="ActionButton" to="." method="_on_ActionButton_pressed"]
