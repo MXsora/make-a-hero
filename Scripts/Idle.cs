@@ -17,7 +17,6 @@ public class Idle : Node
 
 	private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		mainStat = (Label)GetNode("StatDisplay");
