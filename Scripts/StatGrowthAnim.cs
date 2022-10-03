@@ -14,7 +14,7 @@ public class StatGrowthAnim : Control
     {
         animPlayer = GetNode<AnimationPlayer>("StatGrowthAnim");
         lab = GetNode<Label>("StatGrwthNum");
-        lab.Text = s;
+        lab.Text = "+" + s;
         animPlayer.Play("Grow");
     }
 
