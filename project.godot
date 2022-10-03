@@ -14,6 +14,12 @@ config/name="What Makes a Hero Fix"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/icon="res://Art/AnIconIGuess.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.cs"
+Attack="*res://Scripts/Attack.cs"
+Health="*res://Scripts/Health.cs"
+
 [display]
 
 window/size/width=160

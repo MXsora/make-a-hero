@@ -10,18 +10,22 @@ public class Idle : Node
 	private Node activeMenu;
 	private Timer Timer;
 	private Label mainStat;
-	private enum STATE {HEALTH, ATTACK, DEFENSE, EQUIPMENT, MAGIC};
+	private enum STATE {Health, Attack, Defense, Equipment, Magic};
 	private STATE currentState;
 	private AnimatedSprite idleAnims;
+	private RandomNumberGenerator rng = new RandomNumberGenerator();
+
+	private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		mainStat = (Label)GetNode("StatDisplay");
-		currentState = STATE.HEALTH;
+		currentState = STATE.Health;
 		idleAnims = GetNode<AnimatedSprite>("IdleAnimations");
 		mainStat.Text = "Health";
 		idleAnims.Frame = 0;
+		rng.Randomize();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,6 +60,7 @@ public class Idle : Node
 	{
 		mainStat.Text = "Health";
 		idleAnims.Frame = 0;
+		stateChange(STATE.Health);
 	}
 
 
@@ -63,6 +68,7 @@ public class Idle : Node
 	{
 		mainStat.Text = "Attack";
 		idleAnims.Frame = 1;
+		stateChange(STATE.Health);
 	}
 
 
@@ -70,6 +76,7 @@ public class Idle : Node
 	{
 		mainStat.Text = "Defense";
 		idleAnims.Frame = 2;
+		stateChange(STATE.Health);
 	}
 
 
@@ -77,6 +84,7 @@ public class Idle : Node
 	{
 		mainStat.Text = "Equipment";
 		idleAnims.Frame = 3;
+		stateChange(STATE.Health);
 	}
 
 
@@ -84,6 +92,7 @@ public class Idle : Node
 	{
 		mainStat.Text = "Magic";
 		idleAnims.Frame = 4;
+		stateChange(STATE.Health);
 	}
 
 
@@ -102,6 +111,19 @@ public class Idle : Node
 	{
 		 GetTree().ChangeScene("res://Scenes/Menus/WorldMap.tscn");
 	}
+
+	private void _on_Timer_timeout()
+	{
+		StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
+		AddChild(instance);
+		instance.PlaynDestroy("1");
+		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
+	}
+
+	private void IncreaseStat()
+	{
+		
+	}
 	
 	//private void _on_HealthButton_toggled(bool button_pressed)
 	//{
@@ -111,20 +133,20 @@ public class Idle : Node
 	{
 		switch (s)
 		{
-			case STATE.HEALTH:
-				currentState = STATE.HEALTH;
+			case STATE.Health:
+				currentState = STATE.Health;
 				break;
-			case STATE.ATTACK:
-				currentState = STATE.HEALTH;
+			case STATE.Attack:
+				currentState = STATE.Attack;
 				break;
-			case STATE.DEFENSE:
-				currentState = STATE.HEALTH;
+			case STATE.Defense:
+				currentState = STATE.Defense;
 				break;
-			case STATE.EQUIPMENT:
-				currentState = STATE.HEALTH;
+			case STATE.Equipment:
+				currentState = STATE.Equipment;
 				break;
-			case STATE.MAGIC:
-				currentState = STATE.HEALTH;
+			case STATE.Magic:
+				currentState = STATE.Magic;
 				break;
 		}
 	}
