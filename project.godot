@@ -17,8 +17,6 @@ config/icon="res://Art/AnIconIGuess.png"
 [autoload]
 
 Global="*res://Scripts/Global.cs"
-Attack="*res://Scripts/Attack.cs"
-Health="*res://Scripts/Health.cs"
 
 [display]
 

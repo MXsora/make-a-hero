@@ -9,89 +9,64 @@ public class Idle : Node
 
 	private Node activeMenu;
 	private Timer Timer;
-	private Label mainStat;
+	private Label statLabel;
 	private enum STATE {Health, Attack, Defense, Equipment, Magic};
 	private STATE currentState;
 	private AnimatedSprite idleAnims;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
+	private int currentStat;
+	private int currentIncrease;
+	private float currentMultiplier;
 
 	private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
+	private Node attScript;
+	private Node helScript;
+	private Node defScript;
+	private Node equScript;
+	private Node magScript;
+
 
 	public override void _Ready()
 	{
-		mainStat = (Label)GetNode("StatDisplay");
-		currentState = STATE.Health;
+		attScript = GetNode<Node>("Attack");
+		helScript = GetNode<Node>("Health");
+		defScript = GetNode<Node>("Defense");
+		equScript = GetNode<Node>("Equipment");
+		magScript = GetNode<Node>("Magic");
+		
+		statLabel = GetNode<Label>("StatDisplay");
 		idleAnims = GetNode<AnimatedSprite>("IdleAnimations");
-		mainStat.Text = "Health";
-		idleAnims.Frame = 0;
+		stateChange(STATE.Health);
 		rng.Randomize();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	/*public override void _Process(float delta)
-	{
-		switch (currentState)
-		{
-			case STATE.HEALTH:
-				mainStat.Text = "Health";
-				idleAnims.Frame = 0;
-				break;
-			case STATE.ATTACK:
-				mainStat.Text = "Attack";
-				idleAnims.Frame = 1;
-				break;
-			case STATE.DEFENSE:
-				mainStat.Text = "Defense";
-				idleAnims.Frame = 2;
-				break;
-			case STATE.EQUIPMENT:
-				mainStat.Text = "Equipment";
-				idleAnims.Frame = 3;
-				break;
-			case STATE.MAGIC:
-				mainStat.Text = "Magic";
-				idleAnims.Frame = 4;
-				break;
-		}
-	}*/
-
 	private void _on_HealthButton_pressed()
 	{
-		mainStat.Text = "Health";
-		idleAnims.Frame = 0;
 		stateChange(STATE.Health);
 	}
 
 
 	private void _on_AttackButton_pressed()
 	{
-		mainStat.Text = "Attack";
-		idleAnims.Frame = 1;
-		stateChange(STATE.Health);
+		stateChange(STATE.Attack);
 	}
 
 
 	private void _on_DefenseButton_pressed()
 	{
-		mainStat.Text = "Defense";
-		idleAnims.Frame = 2;
-		stateChange(STATE.Health);
+		stateChange(STATE.Defense);
 	}
 
 
 	private void _on_EquipmentButton_pressed()
 	{
-		mainStat.Text = "Equipment";
-		idleAnims.Frame = 3;
-		stateChange(STATE.Health);
+		stateChange(STATE.Equipment);
 	}
 
 
 	private void _on_MagicButton_pressed()
 	{
-		mainStat.Text = "Magic";
-		idleAnims.Frame = 4;
-		stateChange(STATE.Health);
+		stateChange(STATE.Magic);
 	}
 
 
@@ -121,7 +96,7 @@ public class Idle : Node
 
 	private void IncreaseStat()
 	{
-		
+		currentStat += (int)(currentIncrease * currentMultiplier);
 	}
 	
 	//private void _on_HealthButton_toggled(bool button_pressed)
@@ -134,18 +109,29 @@ public class Idle : Node
 		{
 			case STATE.Health:
 				currentState = STATE.Health;
+				statLabel.Text = "Health";
+				idleAnims.Frame = 0;
+				currentStat = 0;
 				break;
 			case STATE.Attack:
 				currentState = STATE.Attack;
+				statLabel.Text = "Attack";
+				idleAnims.Frame = 1;
 				break;
 			case STATE.Defense:
 				currentState = STATE.Defense;
+				statLabel.Text = "Defense";
+				idleAnims.Frame = 2;
 				break;
 			case STATE.Equipment:
 				currentState = STATE.Equipment;
+				statLabel.Text = "Equipment";
+				idleAnims.Frame = 3;
 				break;
 			case STATE.Magic:
 				currentState = STATE.Magic;
+				statLabel.Text = "Magic";
+				idleAnims.Frame = 4;
 				break;
 		}
 	}

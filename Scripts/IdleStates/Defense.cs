@@ -1,11 +1,11 @@
 using Godot;
 using System;
 
-public class Attack : Node
+public class Defense : Node
 {
-    int baseStat = 10;
-    int increaseBy = 1;
-    float multiplier = 0.2f;
+    public static int baseStat = 10;
+    public static int increaseBy = 1;
+    public static float multiplier = 0.2f;
     public override void _Ready()
     {
         

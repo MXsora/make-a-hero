@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-public class Global : Node
+public class Magic : Node
 {
+    public static int baseStat = 10;
+    public static int increaseBy = 1;
+    public static float multiplier = 0.2f;
     public override void _Ready()
     {
         
