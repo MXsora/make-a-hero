@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj": {}
+    "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero.csproj": {}
   },
   "projects": {
-    "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj": {
+    "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj",
-        "projectName": "What Makes a Hero Fix",
-        "projectPath": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj",
+        "projectUniqueName": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero.csproj",
+        "projectName": "What Makes a Hero",
+        "projectPath": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero.csproj",
         "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
         "outputPath": "D:\\Personal Work\\The Max Project\\make-a-hero\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",

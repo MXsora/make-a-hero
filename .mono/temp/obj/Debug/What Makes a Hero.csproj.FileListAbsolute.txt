@@ -1,0 +1,9 @@
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\bin\Debug\What Makes a Hero.dll
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\bin\Debug\What Makes a Hero.pdb
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.csproj.AssemblyReference.cache
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.AssemblyInfoInputs.cache
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.AssemblyInfo.cs
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.csproj.CoreCompileInputs.cache
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.dll
+D:\Personal Work\The Max Project\make-a-hero\.mono\temp\obj\Debug\What Makes a Hero.pdb
