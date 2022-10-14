@@ -3,14 +3,10 @@ using System;
 
 public class Idle : Node
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
 	private Node activeMenu;
-	private Timer Timer;
+	private Timer timer;
 	private Label statLabel;
-	private enum STATE {Health, Attack, Defense, Equipment, Magic};
+	private enum STATE {Health, Attack, Defense, Equipment, Magic, First};
 	private STATE currentState;
 	private AnimatedSprite idleAnims;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
@@ -19,23 +15,13 @@ public class Idle : Node
 	private float currentMultiplier;
 
 	private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
-	private Node attScript;
-	private Node helScript;
-	private Node defScript;
-	private Node equScript;
-	private Node magScript;
-
 
 	public override void _Ready()
 	{
-		attScript = GetNode<Node>("Attack");
-		helScript = GetNode<Node>("Health");
-		defScript = GetNode<Node>("Defense");
-		equScript = GetNode<Node>("Equipment");
-		magScript = GetNode<Node>("Magic");
-		
 		statLabel = GetNode<Label>("StatDisplay");
 		idleAnims = GetNode<AnimatedSprite>("IdleAnimations");
+		timer = GetNode<Timer>("Timer");
+		currentState = STATE.First;
 		stateChange(STATE.Health);
 		rng.Randomize();
 	}
@@ -88,9 +74,11 @@ public class Idle : Node
 
 	private void _on_Timer_timeout()
 	{
+		int x = (int)(currentIncrease * currentMultiplier);
+		currentStat += x;
 		StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
-		instance.PlaynDestroy("1");
+		instance.PlaynDestroy(x.ToString());
 		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
 	}
 
@@ -99,41 +87,82 @@ public class Idle : Node
 		currentStat += (int)(currentIncrease * currentMultiplier);
 	}
 	
-	//private void _on_HealthButton_toggled(bool button_pressed)
-	//{
-		// Replace with function body.
-	//}
 	private void stateChange (STATE s)
 	{
+		switch(currentState)
+		{
+			case STATE.Health:
+				Health.baseStat = currentStat;
+				Health.increaseBy = currentIncrease;
+				Health.multiplier = currentMultiplier;
+				break;
+			case STATE.Attack:
+				Attack.baseStat = currentStat;
+				Attack.increaseBy = currentIncrease;
+				Attack.multiplier = currentMultiplier;
+				break;
+			case STATE.Defense:
+				Defense.baseStat = currentStat;
+				Defense.increaseBy = currentIncrease;
+				Defense.multiplier = currentMultiplier;
+				break;
+			case STATE.Equipment:
+				Equipment.baseStat = currentStat;
+				Equipment.increaseBy = currentIncrease;
+				Equipment.multiplier = currentMultiplier;
+				break;
+			case STATE.Magic:
+				Magic.baseStat = currentStat;
+				Magic.increaseBy = currentIncrease;
+				Magic.multiplier = currentMultiplier;
+				break;
+			case STATE.First:
+				break;
+		}
 		switch (s)
 		{
 			case STATE.Health:
 				currentState = STATE.Health;
 				statLabel.Text = "Health";
 				idleAnims.Frame = 0;
-				currentStat = 0;
+				currentStat = Health.baseStat;
+				currentIncrease = Health.increaseBy;
+				currentMultiplier = Health.multiplier;
 				break;
 			case STATE.Attack:
 				currentState = STATE.Attack;
 				statLabel.Text = "Attack";
 				idleAnims.Frame = 1;
+				currentStat = Attack.baseStat;
+				currentIncrease = Attack.increaseBy;
+				currentMultiplier = Attack.multiplier;
 				break;
 			case STATE.Defense:
 				currentState = STATE.Defense;
 				statLabel.Text = "Defense";
 				idleAnims.Frame = 2;
+				currentStat = Defense.baseStat;
+				currentIncrease = Defense.increaseBy;
+				currentMultiplier = Defense.multiplier;
 				break;
 			case STATE.Equipment:
 				currentState = STATE.Equipment;
 				statLabel.Text = "Equipment";
 				idleAnims.Frame = 3;
+				currentStat = Equipment.baseStat;
+				currentIncrease = Equipment.increaseBy;
+				currentMultiplier = Equipment.multiplier;
 				break;
 			case STATE.Magic:
 				currentState = STATE.Magic;
 				statLabel.Text = "Magic";
 				idleAnims.Frame = 4;
+				currentStat = Magic.baseStat;
+				currentIncrease = Magic.increaseBy;
+				currentMultiplier = Magic.multiplier;
 				break;
 		}
+		timer.Start();
 	}
 
 }

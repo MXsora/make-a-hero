@@ -77,4 +77,6 @@ root_node = NodePath("../StatGrwthNum")
 anims/Grow = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="StatGrowthAnim" to="StatGrwthNum" method="_on_StatGrowthAnim_animation_finished"]

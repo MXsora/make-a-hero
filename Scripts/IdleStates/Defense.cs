@@ -5,7 +5,8 @@ public class Defense : Node
 {
     public static int baseStat = 10;
     public static int increaseBy = 1;
-    public static float multiplier = 0.2f;
+    public static float multiplier = 1.2f;
+    
     public override void _Ready()
     {
         
