@@ -6,6 +6,7 @@ public class Idle : Node
 	private Node activeMenu;
 	private Timer timer;
 	private Label statLabel;
+	private RichTextLabel details;
 	private enum STATE {Health, Attack, Defense, Equipment, Magic, First};
 	private STATE currentState;
 	private AnimatedSprite idleAnims;
@@ -20,10 +21,17 @@ public class Idle : Node
 	{
 		statLabel = GetNode<Label>("StatDisplay");
 		idleAnims = GetNode<AnimatedSprite>("IdleAnimations");
+		details = GetNode<RichTextLabel>("Details");
 		timer = GetNode<Timer>("Timer");
 		currentState = STATE.First;
 		stateChange(STATE.Health);
 		rng.Randomize();
+	}
+
+	public override void _Process(float delta)
+	{
+		details.Text = "Current Stat Value: " + Health.baseStat.ToString();
+		
 	}
 
 	private void _on_HealthButton_pressed()
@@ -78,8 +86,8 @@ public class Idle : Node
 		currentStat += x;
 		StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
-		instance.PlaynDestroy(x.ToString());
 		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
+		instance.PlaynDestroy(x.ToString());
 	}
 
 	private void IncreaseStat()

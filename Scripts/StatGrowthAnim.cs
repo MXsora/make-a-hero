@@ -17,9 +17,4 @@ public class StatGrowthAnim : Control
         lab.Text = "+" + s;
         animPlayer.Play("Grow");
     }
-
-    private void _on_StatGrowthAnim_animation_finished()
-    {
-        QueueFree();
-    }
 }
