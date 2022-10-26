@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Art/IdleMButton.png" type="Texture" id=1]
+[ext_resource path="res://Art/WorldMap.png" type="Texture" id=1]
 [ext_resource path="res://Art/BackButton.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/WorldMap.cs" type="Script" id=3]
 [ext_resource path="res://Art/BackButtonPressed.png" type="Texture" id=4]
+[ext_resource path="res://Art/NodeButton.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Menus/Cursor.tscn" type="PackedScene" id=6]
 
 [node name="WorldMap" type="Control"]
 anchor_right = 1.0
@@ -13,53 +15,103 @@ script = ExtResource( 3 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 160.0
 margin_bottom = 90.0
-color = Color( 0.176471, 0.176471, 0.176471, 1 )
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
 
-[node name="Line" type="ColorRect" parent="."]
-margin_left = 56.0
-margin_top = 44.0
-margin_right = 106.0
-margin_bottom = 45.0
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 160.0
+margin_bottom = 90.0
+texture = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0, 10 )
+points = PoolVector2Array( 76, 56, 62, 70, 31, 49, 39, 29, 26, 13, 61, 6, 91, 30, 106, 55, 142, 40 )
+width = 1.0
+default_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+begin_cap_mode = 1
+end_cap_mode = 1
+round_precision = 5
 
 [node name="BackButton" type="TextureButton" parent="."]
-margin_left = 2.0
-margin_top = 72.0
-margin_right = 42.0
-margin_bottom = 88.0
+margin_left = 119.0
+margin_top = 2.0
+margin_right = 159.0
+margin_bottom = 18.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
 
-[node name="MapNode1" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -111.0
-margin_top = -3.0
-margin_right = -104.0
-margin_bottom = 3.0
-texture_normal = ExtResource( 1 )
+[node name="Farm" type="TextureButton" parent="."]
+margin_left = 73.0
+margin_top = 63.0
+margin_right = 79.0
+margin_bottom = 69.0
+texture_normal = ExtResource( 5 )
 
-[node name="MapNode2" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -3.5
-margin_top = -3.0
-margin_right = 3.5
-margin_bottom = 3.0
-texture_normal = ExtResource( 1 )
+[node name="Beach" type="TextureButton" parent="."]
+margin_left = 59.0
+margin_top = 77.0
+margin_right = 65.0
+margin_bottom = 83.0
+texture_normal = ExtResource( 5 )
 
-[node name="MapNode3" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -54.0
-margin_top = -3.0
-margin_right = -47.0
-margin_bottom = 3.0
-texture_normal = ExtResource( 1 )
+[node name="River" type="TextureButton" parent="."]
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 34.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 5 )
+
+[node name="MuntainBase" type="TextureButton" parent="."]
+margin_left = 36.0
+margin_top = 36.0
+margin_right = 42.0
+margin_bottom = 42.0
+texture_normal = ExtResource( 5 )
+
+[node name="Swamp" type="TextureButton" parent="."]
+margin_left = 23.0
+margin_top = 20.0
+margin_right = 29.0
+margin_bottom = 26.0
+texture_normal = ExtResource( 5 )
+
+[node name="MountainTop" type="TextureButton" parent="."]
+margin_left = 58.0
+margin_top = 13.0
+margin_right = 64.0
+margin_bottom = 19.0
+texture_normal = ExtResource( 5 )
+
+[node name="Forest" type="TextureButton" parent="."]
+margin_left = 88.0
+margin_top = 37.0
+margin_right = 94.0
+margin_bottom = 43.0
+texture_normal = ExtResource( 5 )
+
+[node name="Castle" type="TextureButton" parent="."]
+margin_left = 103.0
+margin_top = 62.0
+margin_right = 109.0
+margin_bottom = 68.0
+texture_normal = ExtResource( 5 )
+
+[node name="Spire" type="TextureButton" parent="."]
+margin_left = 139.0
+margin_top = 47.0
+margin_right = 145.0
+margin_bottom = 53.0
+texture_normal = ExtResource( 5 )
+
+[node name="Cursor" parent="." instance=ExtResource( 6 )]
+position = Vector2( 76, 59 )
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Farm" to="." method="_on_Farm_pressed"]
+[connection signal="pressed" from="Beach" to="." method="_on_Beach_pressed"]
+[connection signal="pressed" from="River" to="." method="_on_River_pressed"]
+[connection signal="pressed" from="MuntainBase" to="." method="_on_MuntainBase_pressed"]
+[connection signal="pressed" from="Swamp" to="." method="_on_Swamp_pressed"]
+[connection signal="pressed" from="MountainTop" to="." method="_on_MountainTop_pressed"]
+[connection signal="pressed" from="Forest" to="." method="_on_Forest_pressed"]
+[connection signal="pressed" from="Castle" to="." method="_on_Castle_pressed"]
+[connection signal="pressed" from="Spire" to="." method="_on_Spire_pressed"]

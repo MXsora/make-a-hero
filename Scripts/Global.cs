@@ -3,6 +3,7 @@ using System;
 
 public class Global : Node
 {
+    public static String currentStage = "";
     public override void _Ready()
     {
         

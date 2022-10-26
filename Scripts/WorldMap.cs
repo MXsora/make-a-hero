@@ -22,4 +22,41 @@ public class WorldMap : Control
     {
         GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
     }
+
+    private void _on_Farm_pressed()
+    {
+        Global.currentStage = "Farm";
+    }
+    private void _on_Beach_pressed()
+    {
+        Global.currentStage = "Beach";
+    }
+    private void _on_River_pressed()
+    {
+        Global.currentStage = "River";
+    }
+    private void _on_MuntainBase_pressed()
+    {
+        Global.currentStage = "MountainBase";
+    }
+    private void _on_Swamp_pressed()
+    {
+        Global.currentStage = "Swamp";
+    }
+    private void _on_MountainTop_pressed()
+    {
+        Global.currentStage = "MountainTop";
+    }
+    private void _on_Forest_pressed()
+    {
+        Global.currentStage = "Forest";
+    }
+    private void _on_Castle_pressed()
+    {
+        Global.currentStage = "Castle";
+    }
+    private void _on_Spire_pressed()
+    {
+        Global.currentStage = "Spire";
+    }
 }
