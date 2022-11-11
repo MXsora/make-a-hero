@@ -3,14 +3,12 @@ using System;
 
 public class MainMenu : Control
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
+	private AnimationPlayer TransRect;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		TransRect = GetNode<AnimationPlayer>("Transition/AnimationPlayer");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,21 +16,27 @@ public class MainMenu : Control
 //  {
 //      
 //  }
-	private void _on_StartButton_pressed()
+	private async void _on_StartButton_pressed()
 	{
+		TransRect.Play("Transition");
+		await ToSignal(TransRect, "animation_finished");
 		GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
 
 	}
 
 
-	private void _on_OptionsButton_pressed()
+	private async void _on_OptionsButton_pressed()
 	{
+		TransRect.Play("Transition");
+		await ToSignal(TransRect, "animation_finished");
 		GetTree().ChangeScene("res://Scenes/Menus/OptionMenu.tscn");
 	}
 
 
-	private void _on_ExitButton_pressed()
+	private async void _on_ExitButton_pressed()
 	{
+		TransRect.Play("Transition");
+		await ToSignal(TransRect, "animation_finished");
 		GetTree().Quit();
 	}
 }

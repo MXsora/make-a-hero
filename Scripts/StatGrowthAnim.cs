@@ -10,11 +10,13 @@ public class StatGrowthAnim : Control
 
     }
 
-    public void PlaynDestroy(String s)
+    public async void PlaynDestroy(String s)
     {
         animPlayer = GetNode<AnimationPlayer>("StatGrowthAnim");
         lab = GetNode<Label>("StatGrwthNum");
         lab.Text = "+" + s;
         animPlayer.Play("Grow");
+        await ToSignal(animPlayer, "animation_finished");
+        QueueFree();
     }
 }

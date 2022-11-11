@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Idle.cs" type="Script" id=1]
 [ext_resource path="res://Art/IdleUI.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Art/IdleShopButtonPressed.png" type="Texture" id=9]
 [ext_resource path="res://Art/IdleMButtonPressed.png" type="Texture" id=10]
 [ext_resource path="res://Art/Font/slkscr.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Scenes/Misc/Transition.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=17]
 size = 11
@@ -89,7 +90,14 @@ autostart = true
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 160.0
 margin_bottom = 90.0
-color = Color( 0.176471, 0.176471, 0.176471, 1 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[node name="IdleAnimations" type="AnimatedSprite" parent="."]
+position = Vector2( 80, 36 )
+frames = ExtResource( 4 )
+animation = "IdleAnims"
+
+[node name="IdleStateTrans" parent="." instance=ExtResource( 12 )]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0
@@ -174,10 +182,6 @@ margin_bottom = 88.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 
-[node name="IdleAnimations" type="AnimatedSprite" parent="."]
-position = Vector2( 80, 36 )
-frames = ExtResource( 4 )
-
 [node name="Details" type="RichTextLabel" parent="."]
 margin_left = 51.0
 margin_top = 73.0
@@ -186,6 +190,9 @@ margin_bottom = 86.0
 custom_fonts/normal_font = SubResource( 16 )
 text = "Detailed stats"
 scroll_active = false
+
+[node name="MainTrans" parent="." instance=ExtResource( 12 )]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="HealthButton" to="." method="_on_HealthButton_pressed"]

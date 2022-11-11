@@ -14,24 +14,26 @@ public class Idle : Node
 	private int currentStat;
 	private int currentIncrease;
 	private float currentMultiplier;
+	private AnimationPlayer TransRect;
+	private AnimationPlayer MainTrans;
+	private ColorRect MainTransColor;
 
 	private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
 
-	public override void _Ready()
+	public override async void _Ready()
 	{
 		statLabel = GetNode<Label>("StatDisplay");
 		idleAnims = GetNode<AnimatedSprite>("IdleAnimations");
 		details = GetNode<RichTextLabel>("Details");
 		timer = GetNode<Timer>("Timer");
+		MainTrans = GetNode<AnimationPlayer>("MainTrans/AnimationPlayer");
+		MainTransColor = GetNode<ColorRect>("MainTrans");
+		await ToSignal(MainTrans, "animation_finished");
+		MainTransColor.Visible = false;
+		TransRect = GetNode<AnimationPlayer>("IdleStateTrans/AnimationPlayer");
 		currentState = STATE.First;
 		stateChange(STATE.Health);
 		rng.Randomize();
-	}
-
-	public override void _Process(float delta)
-	{
-		details.Text = "Current Stat Value: " + Health.baseStat.ToString();
-		
 	}
 
 	private void _on_HealthButton_pressed()
@@ -64,8 +66,11 @@ public class Idle : Node
 	}
 
 
-	private void _on_MenuButton_pressed()
+	private async void _on_MenuButton_pressed()
 	{
+		MainTransColor.Visible = true;
+		MainTrans.Play("Transition");
+		await ToSignal(MainTrans, "animation_finished");
 		GetTree().ChangeScene("res://Scenes/Menus/MainMenu.tscn");
 	}
 
@@ -75,8 +80,11 @@ public class Idle : Node
 		// Replace with function body.
 	}
 
-	private void _on_ActionButton_pressed()
+	private async void _on_ActionButton_pressed()
 	{
+		MainTransColor.Visible = true;
+		MainTrans.Play("Transition");
+		await ToSignal(MainTrans, "animation_finished");
 		 GetTree().ChangeScene("res://Scenes/Menus/WorldMap.tscn");
 	}
 
@@ -84,19 +92,16 @@ public class Idle : Node
 	{
 		int x = (int)(currentIncrease * currentMultiplier);
 		currentStat += x;
+		details.Text = "Current Stat Value: " + currentStat.ToString();
 		StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
 		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
 		instance.PlaynDestroy(x.ToString());
 	}
-
-	private void IncreaseStat()
-	{
-		currentStat += (int)(currentIncrease * currentMultiplier);
-	}
 	
-	private void stateChange (STATE s)
+	private async void stateChange (STATE s)
 	{
+		TransRect.Play("Transition");
 		switch(currentState)
 		{
 			case STATE.Health:
@@ -127,6 +132,7 @@ public class Idle : Node
 			case STATE.First:
 				break;
 		}
+		await ToSignal(TransRect, "animation_finished");
 		switch (s)
 		{
 			case STATE.Health:
@@ -170,6 +176,7 @@ public class Idle : Node
 				currentMultiplier = Magic.multiplier;
 				break;
 		}
+		TransRect.PlayBackwards("Transition");
 		timer.Start();
 	}
 
