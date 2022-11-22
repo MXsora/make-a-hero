@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle Animations9.png-37ca2f9d92ab35e4b9ca4f4204a78417.stex"
+path="res://.import/TitleScreenClothSheet.png-4ac92aa72e31c6a2b65a87611472ca1b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Idle Animations9.png"
-dest_files=[ "res://.import/Idle Animations9.png-37ca2f9d92ab35e4b9ca4f4204a78417.stex" ]
+source_file="res://Art/TitleScreenClothSheet.png"
+dest_files=[ "res://.import/TitleScreenClothSheet.png-4ac92aa72e31c6a2b65a87611472ca1b.stex" ]
 
 [params]
 
