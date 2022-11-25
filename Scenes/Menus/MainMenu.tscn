@@ -53,36 +53,37 @@ texture = ExtResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 127, 36 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 speed_scale = 1.5
 playing = true
 centered = false
 
 [node name="StartButton" type="TextureButton" parent="."]
 margin_left = 4.0
-margin_top = 70.0
+margin_top = 72.0
 margin_right = 49.0
-margin_bottom = 86.0
+margin_bottom = 88.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 6 )
 
 [node name="OptionsButton" type="TextureButton" parent="."]
 margin_left = 53.0
-margin_top = 70.0
+margin_top = 72.0
 margin_right = 114.0
-margin_bottom = 86.0
+margin_bottom = 88.0
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 8 )
 
 [node name="ExitButton" type="TextureButton" parent="."]
 margin_left = 118.0
-margin_top = 70.0
+margin_top = 72.0
 margin_right = 158.0
-margin_bottom = 86.0
+margin_bottom = 88.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 7 )
 
 [node name="Transition" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]

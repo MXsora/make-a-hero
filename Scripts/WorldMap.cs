@@ -3,21 +3,18 @@ using System;
 
 public class WorldMap : Control
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    private Node2D Cursor;
+    private Label StageText;
+    private Vector2[] CursorPositions = new Vector2[] { new Vector2(76,59), new Vector2(62,73)};
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        Cursor = GetNode<Node2D>("Cursor");
+        StageText = GetNode<Label>("StageText");
+        Cursor.Position = CursorPositions[1];
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    
     private void _on_BackButton_pressed()
     {
         GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
@@ -26,10 +23,19 @@ public class WorldMap : Control
     private void _on_Farm_pressed()
     {
         Global.currentStage = "Farm";
+        GetTree().ChangeScene("res://Scenes/Menus/Active.tscn");
+    }
+    private void _on_Farm_mouse_entered()
+    {
+        Cursor.Position = CursorPositions[1];
     }
     private void _on_Beach_pressed()
     {
         Global.currentStage = "Beach";
+    }
+    private void _on_Beach_mouse_entered()
+    {
+        Cursor.Position = CursorPositions[2];
     }
     private void _on_River_pressed()
     {

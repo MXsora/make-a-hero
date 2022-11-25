@@ -88,7 +88,7 @@ public class Idle : Node
 		 GetTree().ChangeScene("res://Scenes/Menus/WorldMap.tscn");
 	}
 
-	private void _on_Timer_timeout()
+	private async void _on_Timer_timeout()
 	{
 		int x = (int)(currentIncrease * currentMultiplier);
 		currentStat += x;
@@ -97,6 +97,7 @@ public class Idle : Node
 		AddChild(instance);
 		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
 		instance.PlaynDestroy(x.ToString());
+		await ToSignal(instance, "animation_finished");
 	}
 	
 	private async void stateChange (STATE s)

@@ -4,11 +4,14 @@ using System;
 public class MainMenu : Control
 {
 	private AnimationPlayer TransRect;
+	private ColorRect TransColor;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		TransRect = GetNode<AnimationPlayer>("Transition/AnimationPlayer");
+		TransColor = GetNode<ColorRect>("Transition");
+		TransColor.Visible = true;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
