@@ -8,24 +8,19 @@
     ".NETFramework,Version=v4.7.2": []
   },
   "packageFolders": {
-    "C:\\Users\\Arex-kun\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\alexi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Personal Work\\Alex's Dumb Video Game Ideas\\Max Project Fix\\What Makes a Hero Fix.csproj",
+      "projectUniqueName": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj",
       "projectName": "What Makes a Hero Fix",
-      "projectPath": "E:\\Personal Work\\Alex's Dumb Video Game Ideas\\Max Project Fix\\What Makes a Hero Fix.csproj",
-      "packagesPath": "C:\\Users\\Arex-kun\\.nuget\\packages\\",
-      "outputPath": "E:\\Personal Work\\Alex's Dumb Video Game Ideas\\Max Project Fix\\.mono\\temp\\obj\\",
+      "projectPath": "D:\\Personal Work\\The Max Project\\make-a-hero\\What Makes a Hero Fix.csproj",
+      "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
+      "outputPath": "D:\\Personal Work\\The Max Project\\make-a-hero\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Arex-kun\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,7 +45,7 @@
     "frameworks": {
       "net472": {
         "targetAlias": "net472",
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -12,14 +12,15 @@ public class Transition : ColorRect
         AnimPlay.PlayBackwards("Transition");
     }
 
-    public void TransOut()
+    public async void TransOut()
     {
         AnimPlay.Play("Transition");
+        await ToSignal(AnimPlay, "animation_finished");
     }
 
-    public void TransInNOut()
+    public async void TransIn()
     {
-        AnimPlay.Play("Transition");
         AnimPlay.PlayBackwards("Transition");
+        await ToSignal(AnimPlay, "animation_finished");
     }
 }

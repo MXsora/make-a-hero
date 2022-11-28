@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art/WorldMap.png" type="Texture" id=1]
 [ext_resource path="res://Art/BackButton.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Art/NodeButton.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Menus/Cursor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Art/NodeButtonDark.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Misc/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Art/Font/PixelText.tres" type="DynamicFont" id=9]
 
 [node name="WorldMap" type="Control"]
 anchor_right = 1.0
@@ -47,6 +49,7 @@ margin_right = 79.0
 margin_bottom = 69.0
 input_pass_on_modal_close_click = false
 texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
 
 [node name="Beach" type="TextureButton" parent="."]
 margin_left = 59.0
@@ -54,6 +57,7 @@ margin_top = 77.0
 margin_right = 65.0
 margin_bottom = 83.0
 texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
 
 [node name="River" type="TextureButton" parent="."]
 margin_left = 28.0
@@ -126,6 +130,10 @@ margin_left = 90.0
 margin_top = 3.0
 margin_right = 148.0
 margin_bottom = 17.0
+custom_fonts/font = ExtResource( 9 )
+
+[node name="Transition" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="mouse_entered" from="Farm" to="." method="_on_Farm_mouse_entered"]

@@ -6,36 +6,51 @@ public class WorldMap : Control
     private Node2D Cursor;
     private Label StageText;
     private Vector2[] CursorPositions = new Vector2[] { new Vector2(76,59), new Vector2(62,73)};
+    private ColorRect Transition;
+    private AnimationPlayer TransPlayer;
 
     public override void _Ready()
     {
         Cursor = GetNode<Node2D>("Cursor");
         StageText = GetNode<Label>("StageText");
-        Cursor.Position = CursorPositions[1];
+        Transition = GetNode<ColorRect>("Transition");
+        TransPlayer = GetNode<AnimationPlayer>("Transition/AnimationPlayer");
+        Transition.Visible = true;
+        Cursor.Position = CursorPositions[0];
+        TransPlayer.PlayBackwards("Transition");
     }
 
     
-    private void _on_BackButton_pressed()
+    private async void _on_BackButton_pressed()
     {
+        TransPlayer.Play("Transition");
+        await ToSignal(TransPlayer, "animation_finished");
         GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
     }
 
-    private void _on_Farm_pressed()
+    private async void _on_Farm_pressed()
     {
         Global.currentStage = "Farm";
-        GetTree().ChangeScene("res://Scenes/Menus/Active.tscn");
+        TransPlayer.Play("Transition");
+        await ToSignal(TransPlayer, "animation_finished");
+        GetTree().ChangeScene("res://Scenes/Active/Active.tscn");
     }
     private void _on_Farm_mouse_entered()
     {
-        Cursor.Position = CursorPositions[1];
+        Cursor.Position = CursorPositions[0];
+        StageText.Text = "Farm";
     }
-    private void _on_Beach_pressed()
+    private async void _on_Beach_pressed()
     {
         Global.currentStage = "Beach";
+        TransPlayer.Play("Transition");
+        await ToSignal(TransPlayer, "animation_finished");
+        GetTree().ChangeScene("res://Scenes/Active/Active.tscn");
     }
     private void _on_Beach_mouse_entered()
     {
-        Cursor.Position = CursorPositions[2];
+        Cursor.Position = CursorPositions[1];
+        StageText.Text = "Beach";
     }
     private void _on_River_pressed()
     {

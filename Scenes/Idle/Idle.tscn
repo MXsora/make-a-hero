@@ -192,6 +192,7 @@ text = "Detailed stats"
 scroll_active = false
 
 [node name="MainTrans" parent="." instance=ExtResource( 12 )]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="HealthButton" to="." method="_on_HealthButton_pressed"]
