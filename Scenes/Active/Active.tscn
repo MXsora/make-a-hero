@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art/ActiveUI.png" type="Texture" id=1]
 [ext_resource path="res://Art/ActiveButtons-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Active.cs" type="Script" id=3]
+[ext_resource path="res://Scenes/Active/TurnCutIns.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/Font/PixelText.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/Active/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Active/Monster.tscn" type="PackedScene" id=7]
@@ -69,6 +70,7 @@ frame = 0
 
 [node name="Monster" parent="." instance=ExtResource( 7 )]
 position = Vector2( 124, 52 )
+frame = 1
 
 [node name="AttackButton" type="TextureButton" parent="."]
 margin_left = 3.0
@@ -102,8 +104,18 @@ margin_bottom = 89.0
 texture_normal = SubResource( 7 )
 texture_pressed = SubResource( 8 )
 
+[node name="TurnCutIns" parent="." instance=ExtResource( 4 )]
+visible = false
+
 [node name="Transition" parent="." instance=ExtResource( 9 )]
 visible = false
 
 [node name="Intros" parent="." instance=ExtResource( 8 )]
 visible = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="DefenseButton" to="." method="_on_DefenseButton_pressed"]
+[connection signal="pressed" from="MagicButton" to="." method="_on_MagicButton_pressed"]
+[connection signal="pressed" from="RetreatButton" to="." method="_on_RetreatButton_pressed"]
