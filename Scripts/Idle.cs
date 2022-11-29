@@ -96,8 +96,7 @@ public class Idle : Node
 		StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
 		instance.SetPosition(new Vector2 (rng.RandfRange(20,40),rng.RandfRange(20,40)));
-		instance.PlaynDestroy(x.ToString());
-		instance.QueueFree();
+		instance.PlaynDestroy(x.ToString(), false);
 	}
 	
 	private async void stateChange (STATE s)

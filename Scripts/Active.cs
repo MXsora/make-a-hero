@@ -55,16 +55,12 @@ public class Active : Node
         
     }
 
-    private async void EnemyAction()
+    private void EnemyAction()
     {
-        TimeKeeper.Start(1);
         StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
 		instance.SetPosition(new Vector2 (25,36));
-		instance.PlaynDestroy("10");
-		instance.QueueFree();
-        ChangeTurns();
-        await ToSignal(TimeKeeper, "timeout");
+		instance.PlaynDestroy("10", true);
     }
     private async void ChangeTurns()
     {
@@ -76,12 +72,12 @@ public class Active : Node
             IsPlayersTurn = false;
             CutInControl.Visible = false;
             EnemyAction();
+            CutInControl.Visible = true;
+            CutIns.Play("PlayerTurn");
+            await ToSignal(CutIns, "animation_finished");
+            IsPlayersTurn = true;
+            CutInControl.Visible = false;
         }
-        CutInControl.Visible = true;
-        CutIns.Play("PlayerTurn");
-        await ToSignal(CutIns, "animation_finished");
-        IsPlayersTurn = true;
-        CutInControl.Visible = false;
     }
     private int CalculateDamage(int dmg, int def)
     {
@@ -94,21 +90,29 @@ public class Active : Node
             StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		    AddChild(instance);
 		    instance.SetPosition(new Vector2 (118,36));
-		    instance.PlaynDestroy("10");
-		    instance.QueueFree();
+		    instance.PlaynDestroy("10", true);
             ChangeTurns();
         }
     }
     private void _on_DefenseButton_pressed()
     {
-        ChangeTurns();
+        if(IsPlayersTurn)
+        {
+            ChangeTurns();
+        }
     }
     private void _on_MagicButton_pressed()
     {
-        ChangeTurns();
+        if(IsPlayersTurn)
+        {
+            ChangeTurns();
+        }
     }
     private void _on_RetreatButton_pressed()
     {
-        GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
+        if(IsPlayersTurn)
+        {
+            GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
+        }
     }
 }

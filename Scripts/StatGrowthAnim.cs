@@ -7,14 +7,20 @@ public class StatGrowthAnim : Control
     private Label lab;
     public override void _Ready()
     {
-
-    }
-
-    public async void PlaynDestroy(String s)
-    {
         animPlayer = GetNode<AnimationPlayer>("StatGrowthAnim");
         lab = GetNode<Label>("StatGrwthNum");
-        lab.Text = "+" + s;
+    }
+
+    public async void PlaynDestroy(String s, bool dmg)
+    {
+        if(dmg)
+        {
+            lab.Text = s;
+        }
+        else
+        {
+            lab.Text = "+" + s;
+        }
         animPlayer.Play("Grow");
         await ToSignal(animPlayer, "animation_finished");
         QueueFree();
