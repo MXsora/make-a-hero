@@ -3,15 +3,16 @@ using System;
 
 public class Player : AnimatedSprite
 {
-    int health;
-    int attack;
-    int defense;
-    int magic;
-
+    public int maxHealth;
+    public int currentHealth;
+    public int attack;
+    public int defense;
+    public int magic;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        health = Health.baseStat;
+        maxHealth = Health.baseStat;
+        currentHealth = maxHealth;
         attack = Attack.baseStat;
         defense = Defense.baseStat;
         magic = Magic.baseStat;

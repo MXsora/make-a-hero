@@ -16,6 +16,9 @@ public class Active : Node
     private bool IsPlayersTurn;
     private PackedScene StatPopUp = GD.Load<PackedScene>("res://Scenes/Idle/StatGrowthAnim.tscn");
 
+    private Player player;
+    private Monster monster;
+
 
     public override async void _Ready()
     {
@@ -28,6 +31,8 @@ public class Active : Node
         CutIns = GetNode<AnimationPlayer>("TurnCutIns/AnimationPlayer");
         CutInControl = GetNode<Control>("TurnCutIns");
         TimeKeeper = GetNode<Timer>("Timer");
+        player = GetNode<Player>("Player");
+        monster = GetNode<Monster>("Monster");
         Transition.Visible = true;
         Intros.Visible = true;
         switch (Global.currentStage)
@@ -57,10 +62,16 @@ public class Active : Node
 
     private void EnemyAction()
     {
+        int enemdmg = CalculateDamage(monster.attack, player.defense);
         StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		AddChild(instance);
 		instance.SetPosition(new Vector2 (25,36));
-		instance.PlaynDestroy("10", true);
+		instance.PlaynDestroy(enemdmg.ToString(), true);
+        player.currentHealth -= enemdmg;
+        if(player.currentHealth <= 0)
+        {
+            //respawn at idle
+        }
     }
     private async void ChangeTurns()
     {
@@ -75,6 +86,7 @@ public class Active : Node
             CutInControl.Visible = true;
             CutIns.Play("PlayerTurn");
             await ToSignal(CutIns, "animation_finished");
+            player.defense = Defense.baseStat;
             IsPlayersTurn = true;
             CutInControl.Visible = false;
         }
@@ -87,10 +99,16 @@ public class Active : Node
     {
         if(IsPlayersTurn)
         {
+            int playerdmg = CalculateDamage(player.attack, monster.defense);
             StatGrowthAnim instance = (StatGrowthAnim)StatPopUp.Instance();
 		    AddChild(instance);
 		    instance.SetPosition(new Vector2 (118,36));
-		    instance.PlaynDestroy("10", true);
+		    instance.PlaynDestroy(playerdmg.ToString(), true);
+            monster.currentHealth -= playerdmg;
+            if(monster.currentHealth <= 0)
+            {
+                //win
+            }
             ChangeTurns();
         }
     }
@@ -98,6 +116,7 @@ public class Active : Node
     {
         if(IsPlayersTurn)
         {
+            player.defense = player.defense*2;
             ChangeTurns();
         }
     }
