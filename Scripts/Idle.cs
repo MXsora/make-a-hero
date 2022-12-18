@@ -28,6 +28,7 @@ public class Idle : Node
 		timer = GetNode<Timer>("Timer");
 		MainTrans = GetNode<AnimationPlayer>("MainTrans/AnimationPlayer");
 		MainTransColor = GetNode<ColorRect>("MainTrans");
+		MusicManager.PlayIdleTheme();
 		await ToSignal(MainTrans, "animation_finished");
 		MainTransColor.Visible = false;
 		TransRect = GetNode<AnimationPlayer>("IdleStateTrans/AnimationPlayer");

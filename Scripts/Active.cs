@@ -35,6 +35,7 @@ public class Active : Node
         monster = GetNode<Monster>("Monster");
         Transition.Visible = true;
         Intros.Visible = true;
+        MusicManager.PlayBattleTheme();
         switch (Global.currentStage)
         {
             case "Farm":

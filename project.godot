@@ -17,6 +17,7 @@ config/icon="res://Art/AnIconIGuess.png"
 [autoload]
 
 Global="*res://Scripts/Global.cs"
+MusicManager="*res://Scripts/MusicManager.cs"
 
 [display]
 

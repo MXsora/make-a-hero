@@ -12,6 +12,7 @@ public class MainMenu : Control
 		TransRect = GetNode<AnimationPlayer>("Transition/AnimationPlayer");
 		TransColor = GetNode<ColorRect>("Transition");
 		TransColor.Visible = true;
+		MusicManager.PlayTitleTheme();
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
