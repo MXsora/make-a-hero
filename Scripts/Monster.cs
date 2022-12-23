@@ -13,7 +13,7 @@ public class Monster : AnimatedSprite
     public override void _Ready()
     {
         Database = GetNode<Node>("Database");
-        maxHealth = 10;
+        maxHealth = 20;
         currentHealth = maxHealth;
         attack = 10;
         defense = 1;

@@ -18,6 +18,11 @@ config/icon="res://Art/AnIconIGuess.png"
 
 Global="*res://Scripts/Global.cs"
 MusicManager="*res://Scripts/MusicManager.cs"
+Attack="*res://Scripts/IdleStates/Attack.cs"
+Defense="*res://Scripts/IdleStates/Defense.cs"
+Equipment="*res://Scripts/IdleStates/Equipment.cs"
+Health="*res://Scripts/IdleStates/Health.cs"
+Magic="*res://Scripts/IdleStates/Magic.cs"
 
 [display]
 

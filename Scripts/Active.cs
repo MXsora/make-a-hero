@@ -94,9 +94,10 @@ public class Active : Node
     }
     private int CalculateDamage(int dmg, int def)
     {
-        return dmg*(100/(100+def));
+        float defcalc = (100f/(100f+def));
+        return (int)(dmg*defcalc);
     }
-    private void _on_AttackButton_pressed()
+    private async void _on_AttackButton_pressed()
     {
         if(IsPlayersTurn)
         {
@@ -108,7 +109,13 @@ public class Active : Node
             monster.currentHealth -= playerdmg;
             if(monster.currentHealth <= 0)
             {
-                //win
+                monster.Visible = false;
+                CutIns.Play("Win");
+                CutInControl.Visible = true;
+                await ToSignal(CutIns, "animation_finished");
+                TransitionControl.Play("Transition");
+                await ToSignal(TransitionControl, "animation_finished");
+                GetTree().ChangeScene("res://Scenes/Idle/Idle.tscn");
             }
             ChangeTurns();
         }

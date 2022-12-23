@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Font/slkscr.ttf" type="DynamicFontData" id=1]
 
@@ -53,6 +53,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ "Enemy Turn" ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "PlayerTurn"
@@ -104,6 +116,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "Player Turn" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -168,6 +192,82 @@ tracks/4/keys = {
 "update": 0,
 "values": [ "Player Turn" ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Label:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Win"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.7 ),
+"transitions": PoolRealArray( 0.68302, 1, 0.535887 ),
+"update": 0,
+"values": [ Vector2( 0, 45 ), Vector2( 0, 37 ), Vector2( 0, 37 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.7 ),
+"transitions": PoolRealArray( 0.68302, 1, 0.535887 ),
+"update": 0,
+"values": [ Vector2( 160, 0 ), Vector2( 160, 15 ), Vector2( 160, 15 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "You Win" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16, 36 ) ]
+}
 
 [sub_resource type="DynamicFont" id=4]
 size = 17
@@ -181,6 +281,7 @@ anchor_bottom = 1.0
 anims/EnemyTurn = SubResource( 1 )
 anims/PlayerTurn = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+anims/Win = SubResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_top = 0.5
@@ -196,7 +297,7 @@ color = Color( 0, 0, 0, 0.376471 )
 [node name="Label" type="Label" parent="."]
 margin_left = -127.0
 margin_top = 36.0
-margin_right = -0.999695
+margin_right = -0.999786
 margin_bottom = 54.0
 custom_fonts/font = SubResource( 4 )
 text = "Player Turn"
