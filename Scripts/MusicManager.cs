@@ -9,10 +9,11 @@ public class MusicManager : Node
     static AudioStream BattleTheme;
     public override void _Ready()
     {
-        MusicPlayer = new AudioStreamPlayer();
+        MusicPlayer = GetNode<AudioStreamPlayer>("MusicPlayer");
         TitleTheme = GD.Load<AudioStream>("res://Music/TitleTheme.mp3");
         IdleTheme = GD.Load<AudioStream>("res://Music/IdleTheme.mp3");
         BattleTheme = GD.Load<AudioStream>("res://Music/BattleTheme.mp3");
+        MusicPlayer.Playing = true;
     }
 
     public static void PlayTitleTheme()

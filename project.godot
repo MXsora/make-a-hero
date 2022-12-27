@@ -17,12 +17,13 @@ config/icon="res://Art/AnIconIGuess.png"
 [autoload]
 
 Global="*res://Scripts/Global.cs"
-MusicManager="*res://Scripts/MusicManager.cs"
+MusicManager="*res://Scenes/Misc/MusicManager.tscn"
 Attack="*res://Scripts/IdleStates/Attack.cs"
 Defense="*res://Scripts/IdleStates/Defense.cs"
 Equipment="*res://Scripts/IdleStates/Equipment.cs"
 Health="*res://Scripts/IdleStates/Health.cs"
 Magic="*res://Scripts/IdleStates/Magic.cs"
+MusicPlayer="*res://Scenes/Misc/MusicPlayer.tscn"
 
 [display]
 
